@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use App\Models\SubscribePackage;
-use app\Repositories\Contracts\SubscribePackageRepositoryInterface;
+use App\Repositories\Contracts\SubscribePackageRepositoryInterface;
 
 class SubscribePackageRepository implements SubscribePackageRepositoryInterface
 {

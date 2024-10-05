@@ -2,16 +2,15 @@
 
 namespace App\Providers;
 
-use app\Repositories\BookingRepository;
-use app\Repositories\CityRepository;
+use App\Repositories\BookingRepository;
+use App\Repositories\CityRepository;
 use App\Repositories\Contracts\BookingRepositoryInterface;
-use app\Repositories\Contracts\CityRepositoryInterface;
-use app\Repositories\Contracts\GymRepositoryInterface;
-use app\Repositories\Contracts\SubscribePackageRepositoryInterface;
-use app\Repositories\GymRepository;
-use app\Repositories\SubscribePackageRepository;
+use App\Repositories\Contracts\CityRepositoryInterface;
+use App\Repositories\Contracts\GymRepositoryInterface;
+use App\Repositories\Contracts\SubscribePackageRepositoryInterface;
+use App\Repositories\GymRepository;
+use App\Repositories\SubscribePackageRepository;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**

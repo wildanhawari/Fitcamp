@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use App\Models\City;
-use app\Repositories\Contracts\CityRepositoryInterface;
+use App\Repositories\Contracts\CityRepositoryInterface;
 
 class CityRepository implements CityRepositoryInterface
 {

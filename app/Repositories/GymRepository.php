@@ -1,15 +1,14 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use App\Models\Gym;
-use app\Repositories\Contracts\GymRepositoryInterface;
+use App\Repositories\Contracts\GymRepositoryInterface;
 
 class GymRepository implements GymRepositoryInterface
 {
-    public function getPopularGyms($limit)
+    public function getPopularGyms($limit = 4)
     {
-        $limit = 4;
         return Gym::where('is_popular', true)
                     ->take($limit)
                     ->get();
