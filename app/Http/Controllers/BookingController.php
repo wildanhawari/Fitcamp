@@ -25,9 +25,7 @@ class BookingController extends Controller
         $totalTaxAmount = $tax * $subscribePackage->price;
         $grandTotalAmount = $subscribePackage->price + $totalTaxAmount;
 
-        return view('booking.checkout', compact('subscribePackage', 
-                                                            'totalTaxAmount', 
-                                                            'grandTotalAmount'));
+        return view('booking.checkout', compact('subscribePackage', 'totalTaxAmount','grandTotalAmount'));
     }
 
     public function bookingStore(SubscribePackage $subscribePackage, StoreBookingRequest $request) {
@@ -40,7 +38,12 @@ class BookingController extends Controller
         }
 
         return redirect()->route('front.payment');
-        
+
+    }
+
+    public function payment() {
+        $data = $this->bookingService->payment();
+        return view('booking.payment', $data);
     }
 
 
@@ -73,6 +76,6 @@ class BookingController extends Controller
             return view('booking.check_booking_details', compact('bookingDetails'));
         }
 
-        return redirect()->route('booking.check_booking')->withErrors(['error' => 'Transaction not found']);
+        return redirect()->route('front.check_booking')->withErrors(['error' => 'Transaction not found']);
     }
 }

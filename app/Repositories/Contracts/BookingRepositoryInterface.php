@@ -1,7 +1,6 @@
-<!-- Indentifier / kunci utama -->
-<!-- Sebagai Patokan/ blueprint -->
 <?php 
-
+// <!-- Indentifier / kunci utama -->
+// <!-- Sebagai Patokan/ blueprint -->
 namespace App\Repositories\Contracts;
 interface BookingRepositoryInterface {
     public function createBooking(array $data);

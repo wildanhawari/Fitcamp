@@ -9,7 +9,7 @@ class SubscribePackageRepository implements SubscribePackageRepositoryInterface
 {
     public function getAllSubscribePackages()
     {
-        return SubscribePackage::latest()->get();
+        return SubscribePackage::first()->get();
     }
 
     public function find($id)

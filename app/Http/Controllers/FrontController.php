@@ -16,10 +16,10 @@ class FrontController extends Controller
         $this->frontService = $frontService;
     }
 
-    public function index() 
+    public function index()
     {
         $data = $this->frontService->getFrontPageData();
-        dd($data);
+        // dd($data);
         return view('front.index', $data);
 
     }
@@ -27,19 +27,19 @@ class FrontController extends Controller
     public function pricing()
     {
         $data = $this->frontService->getSubscriptionData();
-        dd($data);
+        // dd($data);
         return view('front.pricing', $data);
     }
 
     public function details(Gym $gym)  // model binding (otomatis check)
     {
-        dd($gym);
+        // dd($gym);
         return view('front.details', compact('gym'));
     }
 
     public function city(City $city)
     {
-        dd($city);
+        // dd($city);
         return view('front.city', compact('city'));
     }
 }

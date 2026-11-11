@@ -1,10 +1,10 @@
-<?php 
+<?php
 namespace App\Services;
 
 use App\Models\SubscribeTransaction;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\Contracts\BookingRepositoryInterface;
-use app\Repositories\Contracts\SubscribePackageRepositoryInterface;
+use App\Repositories\Contracts\SubscribePackageRepositoryInterface;
 
 class BookingService
 {
@@ -20,8 +20,8 @@ class BookingService
 
     public function getBookingDetails(array $validated)
     {
-        return $this->bookingRepository->findByTrxIdAndPhoneNumber($validated['booking_trx_id'],
-                                                                             ['email']);
+        return $this->bookingRepository->findByTrxIdAndPhoneNumber($validated['booking_trx_id'], 
+                                                                    $validated['phone']);
     }
 
     public function calculateBookingData($subscribePackage, $validatedData)
@@ -34,8 +34,8 @@ class BookingService
         $price = $subscribePackage->price;
 
         $subTotal = $price;
-        $totalPpn = $subTotal * $ppn;
-        $totalAmount = $subTotal * $totalPpn;
+        $totalPpn = $ppn * $subTotal;
+        $totalAmount = $subTotal + $totalPpn;
 
         return [
             'subscribe_package_id' => $subscribePackage->id,
@@ -86,7 +86,7 @@ class BookingService
             $validated['started_at'] = $bookingData['started_at'];
             $validated['ended_at'] = $bookingData['ended_at'];
             $validated['is_paid'] = false;
-            
+
             $validated['booking_trx_id'] = SubscribeTransaction::generateUniqueTrxId();
 
             $newBooking = $this->bookingRepository->createBooking($validated);
